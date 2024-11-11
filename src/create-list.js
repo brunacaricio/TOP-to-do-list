@@ -21,16 +21,16 @@ newListForm.addEventListener('submit', (event) => {
   const list = createList(listName);
   newListInput.value = null;
   lists.push(list);
-  save();  // Save the new list to local storage
-  render();  // Render the updated list
+  save();
+  render();
 });
 
 deleteListBtn.addEventListener('click', e => {
-  const selectedId = getSelectedListId(); // Use the getter function to get the selected list ID
+  const selectedId = getSelectedListId();
   const updatedLists = lists.filter(list => list.id !== selectedId);
-  setSelectedListId(null);  // Clear selectedListId since the list was deleted
-  updateStorage(updatedLists); // Update storage with the filtered lists
-  render(); // Render the updated list
+  setSelectedListId(null);
+  updateStorage(updatedLists);
+  render();
 });
 
 export function createList(name) {
@@ -46,13 +46,13 @@ export function renderLists() {
     listElement.dataset.listId = list.id;
     listElement.innerText = list.name;
 
-    const selectedId = getSelectedListId(); // Use the getter function here
-    if (list.id === selectedId) {  // Only add 'active-list' if IDs match
+    const selectedId = getSelectedListId();
+    if (list.id === selectedId) {
       listElement.classList.add('active-list');
     }
 
     listsContainer.appendChild(listElement);
   });
 
-  newListInput.value = '';  // Reset input
+  newListInput.value = '';
 };

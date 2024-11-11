@@ -19,7 +19,7 @@ export function save() {
 }
 
 export function updateStorage(newLists) {
-  lists.length = 0;             // Clear array in place
-  lists.push(...newLists);       // Spread operator to add new items
+  lists.length = 0;
+  lists.push(...newLists);
   save();
 }
